@@ -83,6 +83,9 @@
     <Reference Include="Il2CppNinjaKiwi.CT.API">
       <HintPath>$(BloonsTD6)\MelonLoader\Il2CppAssemblies\Il2CppNinjaKiwi.CT.API.dll</HintPath>
     </Reference>
+    <Reference Include="Il2CppNinjaKiwi.LiNK.Client">
+      <HintPath>$(BloonsTD6)\MelonLoader\Il2CppAssemblies\Il2CppNinjaKiwi.LiNK.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Il2CppNinjaKiwi.LiNK">
       <HintPath>$(BloonsTD6)\MelonLoader\Il2CppAssemblies\Il2CppNinjaKiwi.LiNK.dll</HintPath>
     </Reference>
