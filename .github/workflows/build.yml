@@ -8,7 +8,7 @@ on:
       - '*'
 
 env:
-  PROJECT_NAME: Unlocker
+  PROJECT_NAME: BTD6Unlocker
   
   MOD_HELPER_NAME: Btd6ModHelper
   BLOONSTD6: ./BloonsTD6
@@ -119,5 +119,5 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: ${{ env.BLOONSTD6 }}/Mods/${{ env.PROJECT_NAME }}.dll
-          body_path: ${{ env.PROJECT_NAME }}/LATEST.md
+          body_path: ${{ env.PROJECT_NAME }}/README.md
           fail_on_unmatched_files: true
