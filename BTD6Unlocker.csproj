@@ -126,6 +126,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)$(TargetFileName)" "D:\SteamLibrary\steamapps\common\BloonsTD6\Mods" /y</PostBuildEvent>
+    <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' and Exists('D:\\SteamLibrary\\steamapps\\common\\BloonsTD6\\Mods') ">copy "$(TargetDir)$(TargetFileName)" "D:\\SteamLibrary\\steamapps\\common\\BloonsTD6\\Mods" /y</PostBuildEvent>
   </PropertyGroup>
 </Project>

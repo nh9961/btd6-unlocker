@@ -17,7 +17,7 @@ jobs:
   build:
     permissions:
       contents: write
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Clone Repo
@@ -38,8 +38,8 @@ jobs:
           latest: true
       - name: Extract Latest MelonLoader
         if: env.MELONLOADER_BRANCH == ''
-        shell: bash
-        run: unzip MelonLoader.x64.zip -d ${{ env.BLOONSTD6 }}
+        shell: pwsh
+        run: Expand-Archive -Path MelonLoader.x64.zip -DestinationPath "${{ env.BLOONSTD6 }}"
 
 
       - name: Download Specific MelonLoader
@@ -89,12 +89,11 @@ jobs:
 
 
       - name: Download btd6.targets
-        shell: bash
+        shell: pwsh
         run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            choco install -y wget
-          fi
-          wget https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/BloonsTD6%20Mod%20Helper/btd6.targets
+          Invoke-WebRequest \
+            -Uri "https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/BloonsTD6%20Mod%20Helper/btd6.targets" \
+            -OutFile "btd6.targets"
 
 
       - name: Setup .NET
