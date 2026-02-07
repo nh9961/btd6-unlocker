@@ -106,6 +106,17 @@ jobs:
         run: dotnet build -c Release -p:BloonsTD6="../${{ env.BLOONSTD6 }}" "${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj"
 
 
+      - name: Stage Mod DLL
+        shell: pwsh
+        run: |
+          $modDir = "${{ env.BLOONSTD6 }}\Mods"
+          New-Item -ItemType Directory -Force -Path $modDir | Out-Null
+          Copy-Item `
+            -Path "${{ env.PROJECT_NAME }}\bin\Release\${{ env.PROJECT_NAME }}.dll" `
+            -Destination "$modDir\${{ env.PROJECT_NAME }}.dll" `
+            -Force
+
+
       - name: Upload Mod DLL
         uses: actions/upload-artifact@v4
         with:

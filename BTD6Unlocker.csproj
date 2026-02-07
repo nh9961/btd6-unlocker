@@ -132,6 +132,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' and Exists('$(BloonsTD6)\Mods') ">copy "$(TargetDir)$(TargetFileName)" "$(BloonsTD6)\Mods" /y</PostBuildEvent>
+    <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' and '$(CI)' == '' and Exists('$(BloonsTD6)\Mods') ">copy "$(TargetDir)$(TargetFileName)" "$(BloonsTD6)\Mods" /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
